@@ -329,16 +329,17 @@ function resizeImage(file, maxSize = 280) {
 /* ── Save ── */
 async function handleSubmit() {
   const name = document.getElementById("f-name")?.value?.trim();
+  const intro = document.getElementById("f-intro")?.value?.trim() || "";
+  const work = document.getElementById("f-work")?.value?.trim() || "";
+  const looking = document.getElementById("f-looking")?.value?.trim() || "";
+  const photo = window._currentPhoto || "";
+  const services = window._selectedServices || [];
+
   if (!name || state.submitting) return;
   setState({ submitting: true });
 
   const data = {
-    name,
-    intro: document.getElementById("f-intro")?.value?.trim() || "",
-    work: document.getElementById("f-work")?.value?.trim() || "",
-    looking: document.getElementById("f-looking")?.value?.trim() || "",
-    photo: window._currentPhoto || "",
-    services: window._selectedServices || [],
+    name, intro, work, looking, photo, services,
     timestamp: state.editId
       ? (state.participants.find(p => p.id === state.editId)?.timestamp || new Date().toISOString())
       : new Date().toISOString(),
