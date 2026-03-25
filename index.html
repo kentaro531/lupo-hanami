@@ -437,7 +437,7 @@ function renderForm() {
         <div class="photo-circle" style="${photoStyle}" onclick="document.getElementById('photo-input').click()">
           ${!photo ? '<div class="placeholder"><div class="cam">📷</div><div class="txt">タップして追加</div></div>' : ''}
         </div>
-        <input type="file" id="photo-input" accept="image/*" capture="user" onchange="handlePhoto(this)" style="display:none">
+        <input type="file" id="photo-input" accept="image/*" onchange="handlePhoto(this)" style="display:none">
         ${photo ? '<button class="photo-change" onclick="clearPhoto()">写真を変更</button>' : ''}
       </div>
 
